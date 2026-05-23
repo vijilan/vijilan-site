@@ -1,4 +1,4 @@
-// Reusable product wordmark component — Revision 01
+// Reusable product wordmark component — Revision 02
 // Each product name uses a two-color treatment:
 //   leading word: inherits surrounding text color
 //   accent word: brand color at font-weight 700
@@ -17,7 +17,7 @@ interface WordmarkProps {
 }
 
 const WORDMARK_CONFIG: Record<Product, { prefix: string; accent: string; color: string }> = {
-  ThreatRespond: { prefix: 'Threat', accent: 'Respond', color: '#00AEEF' },
+  ThreatRespond: { prefix: 'Threat', accent: 'Respond', color: '#56C9E8' }, // logo light blue (waveform gradient)
   ThreatDefend:  { prefix: 'Threat', accent: 'Defend',  color: '#ED1C24' },
   NextDefend:    { prefix: 'Next',   accent: 'Defend',  color: '#A78BFA' },
   ThreatAssess:  { prefix: 'Threat', accent: 'Assess',  color: '#2E6E7E' },

@@ -19,7 +19,7 @@ const situationTiles = [
     answer: 'ThreatRespond™',
     tagline: 'Your tools. Our SOC.',
     href: '/solutions/threatrespond',
-    color: '#00AEEF',
+    color: '#56C9E8',
   },
   {
     situation: 'I want CrowdStrike deployed and managed for me',
@@ -119,13 +119,15 @@ export default function HomePage() {
             >
               Book a Demo
             </Link>
-            <Link
-              href="/platform/praxis"
+            <a
+              href="https://praxisops.ai"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-6 py-3 rounded-lg border border-white/10 text-white text-sm font-medium hover:border-white/20 hover:bg-white/5 transition-all flex items-center gap-2"
             >
               See How Praxis Works
               <ArrowRight className="w-4 h-4" />
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -191,9 +193,10 @@ export default function HomePage() {
         <div className="relative z-10 max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#7C3AED]/30 bg-[#7C3AED]/10 text-[#A78BFA] text-xs font-medium mb-6">
+              {/* Praxis brand badge: black + red identity */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold tracking-wider mb-6" style={{ backgroundColor: '#000', color: '#ED1C24', border: '1px solid #ED1C24' }}>
                 <Zap className="w-3 h-3" />
-                Powered by Praxis
+                POWERED BY PRAXIS
               </div>
               <h2 className="font-display text-4xl md:text-5xl font-700 text-white mb-6 leading-tight">
                 Defense at machine speed.{' '}
@@ -202,12 +205,14 @@ export default function HomePage() {
               <p className="text-slate-400 leading-relaxed mb-8">
                 Adversaries automate. So do we. Praxis is Vijilan&apos;s proprietary AI Engine — a multi-agent pipeline that maps every signal to MITRE ATT&CK, enriches it with live threat intelligence, correlates behavior across your entire environment, and triages in real time. What takes a human analyst 30 minutes, Praxis does in seconds. Then a human analyst verifies and acts. Machine speed, human judgment — neither alone is enough.
               </p>
-              <Link
-                href="/platform/praxis"
+              <a
+                href="https://praxisops.ai"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm font-medium text-[#7C3AED] hover:text-[#A78BFA] transition-colors"
               >
                 Explore the Praxis Platform <ArrowRight className="w-4 h-4" />
-              </Link>
+              </a>
             </div>
 
             <div className="grid grid-cols-2 gap-4">

@@ -20,7 +20,7 @@ const trTiers = [
     itdr: false,
     best: '24/7 monitoring + guided response across 6 domains',
     popular: false,
-    accentColor: '#00AEEF',
+    accentColor: '#56C9E8',
   },
   {
     name: 'Advanced',
@@ -29,7 +29,7 @@ const trTiers = [
     itdr: true,
     best: 'Active containment + full ITDR + EASM',
     popular: true,
-    accentColor: '#00AEEF',
+    accentColor: '#56C9E8',
   },
   {
     name: 'Premium',
@@ -38,7 +38,7 @@ const trTiers = [
     itdr: true,
     best: 'Threat hunting + compliance evidence packages',
     popular: false,
-    accentColor: '#00AEEF',
+    accentColor: '#56C9E8',
   },
   {
     name: 'Elite',
@@ -47,7 +47,7 @@ const trTiers = [
     itdr: true,
     best: 'Named analyst, custom SLA, vCISO, IR retainer',
     popular: false,
-    accentColor: '#00AEEF',
+    accentColor: '#56C9E8',
   },
 ]
 
@@ -122,7 +122,7 @@ export default function PricingPage() {
       <section className="relative pt-32 pb-20 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(0,212,255,0.07),transparent)]" />
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00AEEF]/20 bg-[#00AEEF]/5 text-[#00AEEF] text-xs font-medium mb-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#56C9E8]/20 bg-[#56C9E8]/5 text-[#56C9E8] text-xs font-medium mb-8">
             Transparent Pricing
           </div>
           <h1 className="font-display text-5xl md:text-6xl font-800 text-white leading-tight mb-6">
@@ -149,12 +149,12 @@ export default function PricingPage() {
               <div
                 key={tier.name}
                 className="card-glass rounded-2xl p-6 relative overflow-hidden"
-                style={tier.popular ? { borderColor: 'rgba(0,174,239,0.4)' } : {}}
+                style={tier.popular ? { borderColor: 'rgba(86,201,232,0.4)' } : {}}
               >
                 {tier.popular && (
                   <>
-                    <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(to right, transparent, #00AEEF, transparent)' }} />
-                    <span className="absolute top-3 right-3 text-[10px] px-2 py-0.5 rounded-full font-medium" style={{ backgroundColor: 'rgba(0,174,239,0.1)', color: '#00AEEF', border: '1px solid rgba(0,174,239,0.2)' }}>
+                    <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(to right, transparent, #56C9E8, transparent)' }} />
+                    <span className="absolute top-3 right-3 text-[10px] px-2 py-0.5 rounded-full font-medium" style={{ backgroundColor: 'rgba(86,201,232,0.1)', color: '#56C9E8', border: '1px solid rgba(86,201,232,0.2)' }}>
                       ⭐ Popular
                     </span>
                   </>
@@ -168,13 +168,13 @@ export default function PricingPage() {
                 ) : (
                   <div className="mb-1">
                     <p className="text-base font-600 text-white">Custom</p>
-                    <Link href="/contact" className="text-xs hover:underline" style={{ color: '#00AEEF' }}>Contact us →</Link>
+                    <Link href="/contact" className="text-xs hover:underline" style={{ color: '#56C9E8' }}>Contact us →</Link>
                   </div>
                 )}
                 <p className="text-xs text-slate-500 mb-3">SOC: {tier.soc}</p>
                 <p className="text-xs text-slate-400 mb-3 leading-snug">{tier.best}</p>
                 {tier.itdr && (
-                  <div className="flex items-center gap-1.5 text-xs" style={{ color: '#00AEEF' }}>
+                  <div className="flex items-center gap-1.5 text-xs" style={{ color: '#56C9E8' }}>
                     <CheckCircle className="w-3 h-3" /> ITDR Included
                   </div>
                 )}
@@ -204,7 +204,7 @@ export default function PricingPage() {
                 {volumeDiscounts.map((row, i) => (
                   <tr key={row.range} className={`border-b border-white/5 ${i === 0 ? 'opacity-60' : ''}`}>
                     <td className="py-3 px-5 text-sm text-white">{row.range}</td>
-                    <td className="py-3 px-5 text-sm font-mono" style={{ color: '#00AEEF' }}>{row.price}</td>
+                    <td className="py-3 px-5 text-sm font-mono" style={{ color: '#56C9E8' }}>{row.price}</td>
                     <td className="py-3 px-5 text-sm text-slate-400">{row.discount}</td>
                   </tr>
                 ))}
@@ -301,7 +301,7 @@ export default function PricingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {alwaysIncluded.map((item) => (
               <div key={item} className="flex items-start gap-3 card-glass rounded-xl p-4">
-                <CheckCircle className="w-4 h-4 text-[#00AEEF] shrink-0 mt-0.5" />
+                <CheckCircle className="w-4 h-4 text-[#56C9E8] shrink-0 mt-0.5" />
                 <span className="text-sm text-slate-300">{item}</span>
               </div>
             ))}

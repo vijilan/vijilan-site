@@ -1,33 +1,40 @@
 'use client'
 
 // Design: Atmospheric Depth — dark carbon (#080B11), cyan/purple glows, Bricolage Grotesque + Hanken Grotesk
-// Updated with new routes: /solutions, /platform/praxis, /pricing, /resources/faq
+// Revision 02: Wordmark component in dropdowns, Praxis → external praxisops.ai, ThreatRespond → #56C9E8
 
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ExternalLink } from 'lucide-react'
+import { Wordmark } from '@/app/components/Wordmark'
 
-const navLinks = [
+// Nav structure — Praxis is now an external link to praxisops.ai
+const solutionsChildren = [
   {
-    label: 'Solutions',
-    children: [
-      { label: 'ThreatRespond™', href: '/solutions/threatrespond', desc: 'Your tools. Our SOC.' },
-      { label: 'ThreatDefend™', href: '/solutions/threatdefend', desc: 'CrowdStrike Falcon, fully managed.' },
-      { label: 'NextDefend™', href: '/solutions/nextdefend', desc: 'Managed CrowdStrike Next-Gen SIEM.' },
-      { label: 'All Solutions', href: '/solutions', desc: 'Find the right fit for your situation.' },
-    ],
+    product: 'ThreatRespond' as const,
+    href: '/solutions/threatrespond',
+    desc: 'Your tools. Our SOC.',
+    external: false,
   },
   {
-    label: 'Platform',
-    children: [
-      { label: 'Praxis AI Engine', href: '/platform/praxis', desc: 'Machine-speed triage, human-verified.' },
-    ],
+    product: 'ThreatDefend' as const,
+    href: '/solutions/threatdefend',
+    desc: 'CrowdStrike Falcon, fully managed.',
+    external: false,
   },
+  {
+    product: 'NextDefend' as const,
+    href: '/solutions/nextdefend',
+    desc: 'Managed CrowdStrike Next-Gen SIEM.',
+    external: false,
+  },
+]
+
+const topLinks = [
   { label: 'Pricing', href: '/pricing' },
   { label: 'FAQ', href: '/resources/faq' },
-  { label: 'Vijilan Guard™', href: '/guard' },
 ]
 
 export default function Navbar() {
@@ -75,54 +82,120 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-1">
-          {navLinks.map((item) =>
-            item.children ? (
-              <div key={item.label} className="relative group">
-                <button
-                  className="px-4 py-2 text-sm text-slate-300 hover:text-white transition-colors flex items-center gap-1"
-                  onMouseEnter={() => setOpenDropdown(item.label)}
-                  onMouseLeave={() => setOpenDropdown(null)}
-                >
-                  {item.label}
-                  <svg className="w-3 h-3 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                <div
-                  className={`absolute top-full left-0 pt-2 transition-all duration-200 ${
-                    openDropdown === item.label
-                      ? 'opacity-100 translate-y-0 pointer-events-auto'
-                      : 'opacity-0 -translate-y-2 pointer-events-none'
-                  }`}
-                  onMouseEnter={() => setOpenDropdown(item.label)}
-                  onMouseLeave={() => setOpenDropdown(null)}
-                >
-                  <div className="bg-[#0D1117] border border-white/10 rounded-xl p-2 w-72 shadow-2xl">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className="flex flex-col px-3 py-2.5 rounded-lg hover:bg-white/5 transition-colors"
-                      >
-                        <span className="text-sm font-medium text-white">{child.label}</span>
-                        <span className="text-xs text-slate-400 mt-0.5">{child.desc}</span>
-                      </Link>
-                    ))}
-                  </div>
+
+          {/* Solutions dropdown */}
+          <div className="relative">
+            <button
+              className="px-4 py-2 text-sm text-slate-300 hover:text-white transition-colors flex items-center gap-1"
+              onMouseEnter={() => setOpenDropdown('Solutions')}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              Solutions
+              <svg className="w-3 h-3 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div
+              className={`absolute top-full left-0 pt-2 transition-all duration-200 ${
+                openDropdown === 'Solutions'
+                  ? 'opacity-100 translate-y-0 pointer-events-auto'
+                  : 'opacity-0 -translate-y-2 pointer-events-none'
+              }`}
+              onMouseEnter={() => setOpenDropdown('Solutions')}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              <div className="bg-[#0D1117] border border-white/10 rounded-xl p-2 w-76 shadow-2xl" style={{ width: '300px' }}>
+                {solutionsChildren.map((child) => (
+                  <Link
+                    key={child.href}
+                    href={child.href}
+                    className="flex flex-col px-3 py-2.5 rounded-lg hover:bg-white/5 transition-colors"
+                  >
+                    <span className="text-sm font-medium text-white">
+                      <Wordmark product={child.product} />
+                    </span>
+                    <span className="text-xs text-slate-400 mt-0.5">{child.desc}</span>
+                  </Link>
+                ))}
+                <div className="border-t border-white/5 mt-1 pt-1">
+                  <Link
+                    href="/solutions"
+                    className="flex flex-col px-3 py-2.5 rounded-lg hover:bg-white/5 transition-colors"
+                  >
+                    <span className="text-sm font-medium text-white">All Solutions</span>
+                    <span className="text-xs text-slate-400 mt-0.5">Find the right fit for your situation.</span>
+                  </Link>
                 </div>
               </div>
-            ) : (
-              <Link
-                key={item.href}
-                href={item.href!}
-                className={`px-4 py-2 text-sm transition-colors ${
-                  pathname === item.href ? 'text-white' : 'text-slate-300 hover:text-white'
-                }`}
-              >
-                {item.label}
-              </Link>
-            )
-          )}
+            </div>
+          </div>
+
+          {/* Platform dropdown — Praxis is external */}
+          <div className="relative">
+            <button
+              className="px-4 py-2 text-sm text-slate-300 hover:text-white transition-colors flex items-center gap-1"
+              onMouseEnter={() => setOpenDropdown('Platform')}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              Platform
+              <svg className="w-3 h-3 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div
+              className={`absolute top-full left-0 pt-2 transition-all duration-200 ${
+                openDropdown === 'Platform'
+                  ? 'opacity-100 translate-y-0 pointer-events-auto'
+                  : 'opacity-0 -translate-y-2 pointer-events-none'
+              }`}
+              onMouseEnter={() => setOpenDropdown('Platform')}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              <div className="bg-[#0D1117] border border-white/10 rounded-xl p-2 shadow-2xl" style={{ width: '280px' }}>
+                {/* Praxis — external link with brand styling */}
+                <a
+                  href="https://praxisops.ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col px-3 py-2.5 rounded-lg hover:bg-white/5 transition-colors group/praxis"
+                >
+                  <span className="flex items-center gap-1.5 text-sm font-medium text-white">
+                    {/* Praxis brand mark: black bg + red text */}
+                    <span
+                      className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold tracking-wider"
+                      style={{ backgroundColor: '#000', color: '#ED1C24', border: '1px solid #ED1C24' }}
+                    >
+                      PRAXIS
+                    </span>
+                    AI Engine
+                    <ExternalLink className="w-3 h-3 text-slate-500 group-hover/praxis:text-slate-300 transition-colors" />
+                  </span>
+                  <span className="text-xs text-slate-400 mt-0.5">Machine-speed triage, human-verified. ↗ praxisops.ai</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Flat links */}
+          {topLinks.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`px-4 py-2 text-sm transition-colors ${
+                pathname === item.href ? 'text-white' : 'text-slate-300 hover:text-white'
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
+
+          {/* Vijilan Guard™ */}
+          <Link
+            href="/guard"
+            className="px-4 py-2 text-sm transition-colors text-slate-300 hover:text-white"
+          >
+            <Wordmark product="VililanGuard" />
+          </Link>
         </div>
 
         {/* CTA */}
@@ -148,32 +221,61 @@ export default function Navbar() {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden bg-[#0D1117] border-t border-white/5 px-6 py-4 space-y-1">
-          {navLinks.map((item) =>
-            item.children ? (
-              <div key={item.label}>
-                <p className="text-xs text-slate-500 uppercase tracking-wider px-3 py-2">{item.label}</p>
-                {item.children.map((child) => (
-                  <Link
-                    key={child.href}
-                    href={child.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="block px-3 py-2 text-sm text-slate-300 hover:text-white rounded-lg hover:bg-white/5"
-                  >
-                    {child.label}
-                  </Link>
-                ))}
-              </div>
-            ) : (
-              <Link
-                key={item.href}
-                href={item.href!}
-                onClick={() => setMobileOpen(false)}
-                className="block px-3 py-2 text-sm text-slate-300 hover:text-white rounded-lg hover:bg-white/5"
-              >
-                {item.label}
-              </Link>
-            )
-          )}
+          <p className="text-xs text-slate-500 uppercase tracking-wider px-3 py-2">Solutions</p>
+          {solutionsChildren.map((child) => (
+            <Link
+              key={child.href}
+              href={child.href}
+              onClick={() => setMobileOpen(false)}
+              className="block px-3 py-2 text-sm rounded-lg hover:bg-white/5 text-white"
+            >
+              <Wordmark product={child.product} />
+            </Link>
+          ))}
+          <Link
+            href="/solutions"
+            onClick={() => setMobileOpen(false)}
+            className="block px-3 py-2 text-sm text-slate-300 hover:text-white rounded-lg hover:bg-white/5"
+          >
+            All Solutions
+          </Link>
+
+          <p className="text-xs text-slate-500 uppercase tracking-wider px-3 py-2 pt-3">Platform</p>
+          <a
+            href="https://praxisops.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMobileOpen(false)}
+            className="flex items-center gap-2 px-3 py-2 text-sm text-slate-300 hover:text-white rounded-lg hover:bg-white/5"
+          >
+            <span
+              className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold tracking-wider"
+              style={{ backgroundColor: '#000', color: '#ED1C24', border: '1px solid #ED1C24' }}
+            >
+              PRAXIS
+            </span>
+            AI Engine
+            <ExternalLink className="w-3 h-3 text-slate-500" />
+          </a>
+
+          {topLinks.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setMobileOpen(false)}
+              className="block px-3 py-2 text-sm text-slate-300 hover:text-white rounded-lg hover:bg-white/5"
+            >
+              {item.label}
+            </Link>
+          ))}
+          <Link
+            href="/guard"
+            onClick={() => setMobileOpen(false)}
+            className="block px-3 py-2 text-sm rounded-lg hover:bg-white/5 text-white"
+          >
+            <Wordmark product="VililanGuard" />
+          </Link>
+
           <div className="pt-2">
             <Link
               href="/contact"

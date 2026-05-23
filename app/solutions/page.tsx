@@ -18,7 +18,7 @@ const situations = [
     tagline: 'Your tools. Our SOC.',
     why: 'Vendor-agnostic. Works with any EDR, SIEM, or identity provider you already run. We wrap our AI-augmented SOC around your existing stack — no rip-and-replace.',
     href: '/solutions/threatrespond',
-    color: '#00AEEF',
+    color: '#56C9E8',
     num: '01',
   },
   {
@@ -58,7 +58,7 @@ export default function SolutionsPage() {
       <section className="relative pt-32 pb-20 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(0,212,255,0.08),transparent)]" />
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00AEEF]/20 bg-[#00AEEF]/5 text-[#00AEEF] text-xs font-medium mb-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-slate-300 text-xs font-medium mb-8">
             Solutions
           </div>
           <h1 className="font-display text-5xl md:text-6xl font-800 text-white leading-tight mb-6">
@@ -139,9 +139,10 @@ export default function SolutionsPage() {
           <div className="relative rounded-3xl overflow-hidden p-12 border border-[#7C3AED]/20">
             <div className="absolute inset-0 bg-gradient-to-br from-[#7C3AED]/8 via-transparent to-transparent" />
             <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#7C3AED]/30 bg-[#7C3AED]/10 text-[#A78BFA] text-xs font-medium mb-6">
+              {/* Praxis brand badge: black + red identity */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold tracking-wider mb-6" style={{ backgroundColor: '#000', color: '#ED1C24', border: '1px solid #ED1C24' }}>
                 <Zap className="w-3 h-3" />
-                One Engine Behind All Four
+                ONE ENGINE BEHIND ALL FOUR
               </div>
               <h2 className="font-display text-3xl md:text-4xl font-700 text-white mb-4">
                 Whatever you choose, Praxis is underneath.
@@ -149,12 +150,15 @@ export default function SolutionsPage() {
               <p className="text-slate-400 leading-relaxed mb-8 max-w-2xl">
                 Every Vijilan service runs on the same AI Engine — Praxis. Machine-speed triage, MITRE ATT&CK mapping, behavioral correlation, and live threat enrichment, with every action verified by a human analyst. The service you pick decides whose tools we watch. Praxis decides how fast we catch what&apos;s hunting you.
               </p>
-              <Link
-                href="/platform/praxis"
-                className="inline-flex items-center gap-2 text-sm font-medium text-[#A78BFA] hover:text-[#7C3AED] transition-colors"
+              <a
+                href="https://praxisops.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-medium hover:opacity-80 transition-colors"
+                style={{ color: '#ED1C24' }}
               >
                 See how Praxis works <ArrowRight className="w-4 h-4" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
