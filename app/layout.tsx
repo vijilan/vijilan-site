@@ -1,6 +1,10 @@
 import type { Metadata } from 'next'
 import { Bricolage_Grotesque, Hanken_Grotesk } from 'next/font/google'
+import dynamic from 'next/dynamic'
 import './globals.css'
+
+const Navbar = dynamic(() => import('@/app/components/Navbar'), { ssr: false })
+const Footer = dynamic(() => import('@/app/components/Footer'), { ssr: false })
 
 const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
@@ -36,7 +40,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${bricolage.variable} ${hanken.variable}`}>
       <body className="bg-[#080B11] text-white antialiased">
-        {children}
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   )
