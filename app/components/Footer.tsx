@@ -3,17 +3,26 @@ import { Shield } from 'lucide-react'
 
 const footerLinks = [
   {
-    heading: 'Products',
+    heading: 'Solutions',
     links: [
-      { label: 'ThreatRespond™', href: '/products/threatrespond' },
-      { label: 'ThreatDefend™', href: '/products/threatdefend' },
-      { label: 'NextDefend™', href: '/products/nextdefend' },
+      { label: 'ThreatRespond™', href: '/solutions/threatrespond' },
+      { label: 'ThreatDefend™', href: '/solutions/threatdefend' },
+      { label: 'NextDefend™', href: '/solutions/nextdefend' },
+      { label: 'All Solutions', href: '/solutions' },
+    ],
+  },
+  {
+    heading: 'Platform',
+    links: [
+      { label: 'Praxis AI Engine', href: '/platform/praxis' },
+      { label: 'Vijilan Guard™', href: '/guard' },
     ],
   },
   {
     heading: 'Company',
     links: [
-      { label: 'Vijilan Guard™', href: '/guard' },
+      { label: 'Pricing', href: '/pricing' },
+      { label: 'FAQ', href: '/resources/faq' },
       { label: 'Contact', href: '/contact' },
     ],
   },
@@ -43,7 +52,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed">
-              Enterprise-grade managed security, delivered as a service.
+              AI-augmented managed security for MSPs and MSSPs. Machine speed. Human judgment.
             </p>
           </div>
 
@@ -71,10 +80,10 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-slate-500">
-            © {new Date().getFullYear()} Vijilan, Inc. All rights reserved.
+            © {new Date().getFullYear()} Vijilan Security, Inc. All rights reserved.
           </p>
           <p className="text-xs text-slate-600">
-            SOC 2 Type II Certified · HIPAA Compliant · ISO 27001
+            SOC 2 Type 2 · ISO 27001 · CrowdStrike CPSP · Authorized CrowdStrike Reseller
           </p>
         </div>
       </div>

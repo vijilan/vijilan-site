@@ -1,5 +1,8 @@
 'use client'
 
+// Design: Atmospheric Depth — dark carbon (#080B11), cyan/purple glows, Bricolage Grotesque + Hanken Grotesk
+// Updated with new routes: /solutions, /platform/praxis, /pricing, /resources/faq
+
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
@@ -7,22 +10,30 @@ import { Menu, X, Shield } from 'lucide-react'
 
 const navLinks = [
   {
-    label: 'Products',
+    label: 'Solutions',
     children: [
-      { label: 'ThreatRespond™', href: '/products/threatrespond', desc: 'Managed Detection & Response' },
-      { label: 'ThreatDefend™', href: '/products/threatdefend', desc: 'Managed Endpoint Security' },
-      { label: 'NextDefend™', href: '/products/nextdefend', desc: 'Zero-Trust Network Security' },
+      { label: 'ThreatRespond™', href: '/solutions/threatrespond', desc: 'Your tools. Our SOC.' },
+      { label: 'ThreatDefend™', href: '/solutions/threatdefend', desc: 'CrowdStrike Falcon, fully managed.' },
+      { label: 'NextDefend™', href: '/solutions/nextdefend', desc: 'Managed CrowdStrike Next-Gen SIEM.' },
+      { label: 'All Solutions', href: '/solutions', desc: 'Find the right fit for your situation.' },
     ],
   },
+  {
+    label: 'Platform',
+    children: [
+      { label: 'Praxis AI Engine', href: '/platform/praxis', desc: 'Machine-speed triage, human-verified.' },
+    ],
+  },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'FAQ', href: '/resources/faq' },
   { label: 'Vijilan Guard™', href: '/guard' },
-  { label: 'Contact', href: '/contact' },
 ]
 
 export default function Navbar() {
   const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [productsOpen, setProductsOpen] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20)
@@ -57,8 +68,8 @@ export default function Navbar() {
               <div key={item.label} className="relative group">
                 <button
                   className="px-4 py-2 text-sm text-slate-300 hover:text-white transition-colors flex items-center gap-1"
-                  onMouseEnter={() => setProductsOpen(true)}
-                  onMouseLeave={() => setProductsOpen(false)}
+                  onMouseEnter={() => setOpenDropdown(item.label)}
+                  onMouseLeave={() => setOpenDropdown(null)}
                 >
                   {item.label}
                   <svg className="w-3 h-3 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -67,12 +78,14 @@ export default function Navbar() {
                 </button>
                 <div
                   className={`absolute top-full left-0 pt-2 transition-all duration-200 ${
-                    productsOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'
+                    openDropdown === item.label
+                      ? 'opacity-100 translate-y-0 pointer-events-auto'
+                      : 'opacity-0 -translate-y-2 pointer-events-none'
                   }`}
-                  onMouseEnter={() => setProductsOpen(true)}
-                  onMouseLeave={() => setProductsOpen(false)}
+                  onMouseEnter={() => setOpenDropdown(item.label)}
+                  onMouseLeave={() => setOpenDropdown(null)}
                 >
-                  <div className="bg-[#0D1117] border border-white/10 rounded-xl p-2 w-64 shadow-2xl">
+                  <div className="bg-[#0D1117] border border-white/10 rounded-xl p-2 w-72 shadow-2xl">
                     {item.children.map((child) => (
                       <Link
                         key={child.href}
@@ -106,7 +119,7 @@ export default function Navbar() {
             href="/contact"
             className="px-4 py-2 text-sm font-medium rounded-lg bg-[#00D4FF] text-[#080B11] hover:bg-[#00BFEA] transition-colors"
           >
-            Get Protected
+            Book a Demo
           </Link>
         </div>
 
@@ -154,7 +167,7 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
               className="block w-full text-center px-4 py-2.5 text-sm font-medium rounded-lg bg-[#00D4FF] text-[#080B11] hover:bg-[#00BFEA] transition-colors"
             >
-              Get Protected
+              Book a Demo
             </Link>
           </div>
         </div>
