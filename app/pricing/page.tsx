@@ -1,9 +1,10 @@
-// Design: Atmospheric Depth — dark carbon (#080B11), cyan/purple glows, Bricolage Grotesque + Hanken Grotesk
-// Content: Claude 08_Pricing.md
+// Design: Atmospheric Depth — dark carbon (#080B11), cyan/purple/red glows, Bricolage Grotesque + Hanken Grotesk
+// Revision 01: hide Elite pricing, wordmark colors, updated meta, expanded feature descriptions
 
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle } from 'lucide-react'
+import { Wordmark } from '@/app/components/Wordmark'
 
 export const metadata: Metadata = {
   title: 'Transparent Pricing — Managed Security for MSPs | Vijilan',
@@ -12,10 +13,42 @@ export const metadata: Metadata = {
 }
 
 const trTiers = [
-  { name: 'Essential', price: '$4', soc: 'Advises', itdr: false, best: 'Monitoring + guided response', popular: false },
-  { name: 'Advanced', price: '$7', soc: 'Acts', itdr: true, best: 'Active containment + ITDR', popular: true },
-  { name: 'Premium', price: '$12', soc: 'Acts + hunts', itdr: true, best: 'Threat hunting + compliance', popular: false },
-  { name: 'Elite', price: '$21', soc: 'Concierge', itdr: true, best: 'Dedicated analyst + custom SLA', popular: false },
+  {
+    name: 'Essential',
+    price: '$4',
+    soc: 'SOC advises',
+    itdr: false,
+    best: '24/7 monitoring + guided response across 6 domains',
+    popular: false,
+    accentColor: '#275FAC',
+  },
+  {
+    name: 'Advanced',
+    price: '$7',
+    soc: 'SOC acts via ThreatContain™',
+    itdr: true,
+    best: 'Active containment + full ITDR + EASM',
+    popular: true,
+    accentColor: '#275FAC',
+  },
+  {
+    name: 'Premium',
+    price: '$12',
+    soc: 'SOC acts + proactive threat hunting',
+    itdr: true,
+    best: 'Threat hunting + compliance evidence packages',
+    popular: false,
+    accentColor: '#275FAC',
+  },
+  {
+    name: 'Elite',
+    price: null,
+    soc: 'Dedicated concierge analyst',
+    itdr: true,
+    best: 'Named analyst, custom SLA, vCISO, IR retainer',
+    popular: false,
+    accentColor: '#275FAC',
+  },
 ]
 
 const volumeDiscounts = [
@@ -27,23 +60,55 @@ const volumeDiscounts = [
 ]
 
 const tdTiers = [
-  { name: 'Essential', ep: '$6', user: '$4', blended: '~$10', itdr: true, popular: false },
-  { name: 'Advanced', ep: '$10', user: '$5', blended: '~$15', itdr: true, popular: true },
-  { name: 'Premium', ep: '$14', user: '$7', blended: '~$21', itdr: true, popular: false },
-  { name: 'Elite', ep: 'Custom', user: 'Custom', blended: 'Custom', itdr: true, popular: false },
+  {
+    name: 'Essential',
+    ep: '$6',
+    user: '$4',
+    blended: '~$10',
+    itdr: true,
+    popular: false,
+    best: 'Falcon EDR + NGAV + full ITDR + ThreatContain™',
+  },
+  {
+    name: 'Advanced',
+    ep: '$10',
+    user: '$5',
+    blended: '~$15',
+    itdr: true,
+    popular: true,
+    best: 'Adds Falcon Discover, Spotlight, EASM, 15-min SLA',
+  },
+  {
+    name: 'Premium',
+    ep: '$14',
+    user: '$7',
+    blended: '~$21',
+    itdr: true,
+    popular: false,
+    best: 'Dual hunting: Vijilan SOC + CrowdStrike OverWatch',
+  },
+  {
+    name: 'Elite',
+    ep: null,
+    user: null,
+    blended: null,
+    itdr: true,
+    popular: false,
+    best: 'Named analyst, custom SLA, IR retainer',
+  },
 ]
 
 const alwaysIncluded = [
-  'Praxis AI Engine',
-  'Human-verified SOC',
-  'ThreatLog™ SIEM (no data caps)',
-  'White-label',
-  'MITRE ATT&CK mapping',
-  'PSA/ITSM integration',
+  'Praxis AI Engine — machine-speed triage, MITRE ATT&CK mapping, IOC enrichment',
+  'Human-verified SOC — every action confirmed by a human analyst',
+  'ThreatLog™ SIEM — no data caps, no per-GB fees, 7-year retention',
+  'White-label — deliver under your brand',
+  'MITRE ATT&CK mapping — every alert placed in adversary context',
+  'PSA/ITSM integration — ConnectWise, Autotask, HaloPSA (in progress), FreshService, Zendesk',
 ]
 
 const pricingFaqs = [
-  { q: 'Is there really no hidden enterprise pricing?', a: 'ThreatRespond and ThreatDefend per-unit rates are published here in full. NextDefend and Elite tiers are scoped because data volume and requirements genuinely vary.' },
+  { q: 'Is there really no hidden enterprise pricing?', a: 'ThreatRespond and ThreatDefend per-unit rates for Essential, Advanced, and Premium are published in full. Elite and NextDefend are scoped to your needs — contact us for those.' },
   { q: 'How do volume discounts work?', a: 'For ThreatRespond Advanced and up, discounts apply automatically starting at 250 users — no negotiation.' },
   { q: "What's the platform minimum?", a: '$500/month per partner account, regardless of client count.' },
   { q: 'Is there an annual discount?', a: 'Yes — 15% off when paid annually.' },
@@ -55,7 +120,7 @@ export default function PricingPage() {
 
       {/* ── HERO ── */}
       <section className="relative pt-32 pb-20 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(0,212,255,0.08),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(0,212,255,0.07),transparent)]" />
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00D4FF]/20 bg-[#00D4FF]/5 text-[#00D4FF] text-xs font-medium mb-8">
             Transparent Pricing
@@ -64,7 +129,7 @@ export default function PricingPage() {
             No &ldquo;contact sales for a quote&rdquo; games.
           </h1>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Per-user and per-endpoint pricing, published. Volume discounts that apply automatically. See exactly what you&apos;ll pay before you talk to anyone.
+            Per-user and per-endpoint pricing, published. <Wordmark product="ThreatRespond" /> from $4/user/mo. Volume discounts that apply automatically. See exactly what you&apos;ll pay before you talk to anyone.
           </p>
         </div>
       </section>
@@ -73,7 +138,9 @@ export default function PricingPage() {
       <section className="py-20 px-6 bg-[#0D1117]">
         <div className="max-w-6xl mx-auto">
           <div className="mb-10">
-            <h2 className="font-display text-3xl font-700 text-white mb-2">ThreatRespond™ — Your tools. Our SOC.</h2>
+            <h2 className="font-display text-3xl font-700 text-white mb-2">
+              <Wordmark product="ThreatRespond" /> — Your tools. Our SOC.
+            </h2>
             <p className="text-slate-400 text-sm">Per user / month. Vendor-agnostic managed XDR.</p>
           </div>
 
@@ -81,25 +148,33 @@ export default function PricingPage() {
             {trTiers.map((tier) => (
               <div
                 key={tier.name}
-                className={`card-glass rounded-2xl p-6 relative overflow-hidden ${tier.popular ? 'border-[#00D4FF]/40' : ''}`}
+                className="card-glass rounded-2xl p-6 relative overflow-hidden"
+                style={tier.popular ? { borderColor: 'rgba(39,95,172,0.4)' } : {}}
               >
                 {tier.popular && (
                   <>
-                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00D4FF] to-transparent" />
-                    <span className="absolute top-3 right-3 text-[10px] px-2 py-0.5 rounded-full bg-[#00D4FF]/10 text-[#00D4FF] border border-[#00D4FF]/20 font-medium">
+                    <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(to right, transparent, #275FAC, transparent)' }} />
+                    <span className="absolute top-3 right-3 text-[10px] px-2 py-0.5 rounded-full font-medium" style={{ backgroundColor: 'rgba(39,95,172,0.1)', color: '#6B9FE4', border: '1px solid rgba(39,95,172,0.2)' }}>
                       ⭐ Popular
                     </span>
                   </>
                 )}
                 <p className="text-sm text-slate-400 mb-2">{tier.name}</p>
-                <div className="flex items-baseline gap-1 mb-1">
-                  <span className="font-display text-3xl font-700 text-white">{tier.price}</span>
-                  <span className="text-xs text-slate-500">/user/mo</span>
-                </div>
+                {tier.price ? (
+                  <div className="flex items-baseline gap-1 mb-1">
+                    <span className="font-display text-3xl font-700 text-white">{tier.price}</span>
+                    <span className="text-xs text-slate-500">/user/mo</span>
+                  </div>
+                ) : (
+                  <div className="mb-1">
+                    <p className="text-base font-600 text-white">Custom</p>
+                    <Link href="/contact" className="text-xs hover:underline" style={{ color: '#6B9FE4' }}>Contact us →</Link>
+                  </div>
+                )}
                 <p className="text-xs text-slate-500 mb-3">SOC: {tier.soc}</p>
-                <p className="text-xs text-slate-400 mb-3">{tier.best}</p>
+                <p className="text-xs text-slate-400 mb-3 leading-snug">{tier.best}</p>
                 {tier.itdr && (
-                  <div className="flex items-center gap-1.5 text-xs text-[#00D4FF]">
+                  <div className="flex items-center gap-1.5 text-xs" style={{ color: '#6B9FE4' }}>
                     <CheckCircle className="w-3 h-3" /> ITDR Included
                   </div>
                 )}
@@ -129,7 +204,7 @@ export default function PricingPage() {
                 {volumeDiscounts.map((row, i) => (
                   <tr key={row.range} className={`border-b border-white/5 ${i === 0 ? 'opacity-60' : ''}`}>
                     <td className="py-3 px-5 text-sm text-white">{row.range}</td>
-                    <td className="py-3 px-5 text-sm text-[#00D4FF] font-mono">{row.price}</td>
+                    <td className="py-3 px-5 text-sm font-mono" style={{ color: '#6B9FE4' }}>{row.price}</td>
                     <td className="py-3 px-5 text-sm text-slate-400">{row.discount}</td>
                   </tr>
                 ))}
@@ -143,7 +218,9 @@ export default function PricingPage() {
       <section className="py-20 px-6 bg-[#0D1117]">
         <div className="max-w-6xl mx-auto">
           <div className="mb-10">
-            <h2 className="font-display text-3xl font-700 text-white mb-2">ThreatDefend™ — Our stack. Our SOC.</h2>
+            <h2 className="font-display text-3xl font-700 text-white mb-2">
+              <Wordmark product="ThreatDefend" /> — Our stack. Our SOC.
+            </h2>
             <p className="text-slate-400 text-sm">Powered by CrowdStrike Falcon. Dual pricing: per endpoint + per user. SOC acts on every tier.</p>
           </div>
 
@@ -151,29 +228,38 @@ export default function PricingPage() {
             {tdTiers.map((tier) => (
               <div
                 key={tier.name}
-                className={`card-glass rounded-2xl p-6 relative overflow-hidden ${tier.popular ? 'border-[#7C3AED]/40' : ''}`}
+                className="card-glass rounded-2xl p-6 relative overflow-hidden"
+                style={tier.popular ? { borderColor: 'rgba(237,28,36,0.35)' } : {}}
               >
                 {tier.popular && (
                   <>
-                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#7C3AED] to-transparent" />
-                    <span className="absolute top-3 right-3 text-[10px] px-2 py-0.5 rounded-full bg-[#7C3AED]/10 text-[#A78BFA] border border-[#7C3AED]/20 font-medium">
+                    <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(to right, transparent, #ED1C24, transparent)' }} />
+                    <span className="absolute top-3 right-3 text-[10px] px-2 py-0.5 rounded-full font-medium" style={{ backgroundColor: 'rgba(237,28,36,0.1)', color: '#F87171', border: '1px solid rgba(237,28,36,0.2)' }}>
                       ⭐ Popular
                     </span>
                   </>
                 )}
                 <p className="text-sm text-slate-400 mb-3">{tier.name}</p>
-                <div className="space-y-1 mb-2">
-                  <div className="flex items-baseline gap-1">
-                    <span className="font-display text-2xl font-700 text-white">{tier.ep}</span>
-                    <span className="text-xs text-slate-500">/endpoint</span>
+                {tier.ep ? (
+                  <div className="space-y-1 mb-2">
+                    <div className="flex items-baseline gap-1">
+                      <span className="font-display text-2xl font-700 text-white">{tier.ep}</span>
+                      <span className="text-xs text-slate-500">/endpoint</span>
+                    </div>
+                    <div className="flex items-baseline gap-1">
+                      <span className="font-display text-2xl font-700 text-white">{tier.user}</span>
+                      <span className="text-xs text-slate-500">/user</span>
+                    </div>
+                    <p className="text-xs text-slate-500 mt-1">Blended {tier.blended}</p>
                   </div>
-                  <div className="flex items-baseline gap-1">
-                    <span className="font-display text-2xl font-700 text-white">{tier.user}</span>
-                    <span className="text-xs text-slate-500">/user</span>
+                ) : (
+                  <div className="mb-2">
+                    <p className="text-base font-600 text-white">Custom</p>
+                    <Link href="/contact" className="text-xs hover:underline" style={{ color: '#F87171' }}>Contact us →</Link>
                   </div>
-                </div>
-                <p className="text-xs text-slate-500 mb-3">Blended {tier.blended}</p>
-                <div className="flex items-center gap-1.5 text-xs text-[#A78BFA]">
+                )}
+                <p className="text-xs text-slate-400 mb-3 leading-snug">{tier.best}</p>
+                <div className="flex items-center gap-1.5 text-xs" style={{ color: '#F87171' }}>
                   <CheckCircle className="w-3 h-3" /> ITDR Included
                 </div>
               </div>
@@ -189,15 +275,18 @@ export default function PricingPage() {
       {/* ── NEXTDEFEND PRICING ── */}
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-display text-3xl font-700 text-white mb-2">NextDefend™ — Deployed. Sustained. Operated.</h2>
+          <h2 className="font-display text-3xl font-700 text-white mb-2">
+            <Wordmark product="NextDefend" /> — Deployed. Sustained. Operated.
+          </h2>
           <p className="text-slate-400 text-sm mb-6">Managed CrowdStrike Next-Gen SIEM. Scoped to your environment.</p>
           <div className="card-glass rounded-2xl p-8">
             <p className="text-slate-400 leading-relaxed mb-6">
-              Because data volume, sources, and operational scope vary widely, NextDefend is scoped per engagement rather than list-priced. Deploy (onboarding), Sustain (ongoing engineering), and Operate (fully managed 24/7 SOC) are each sized to your environment. Operate&apos;s SOC coverage scales with ingest volume.
+              Because data volume, sources, and operational scope vary widely, <Wordmark product="NextDefend" /> is scoped per engagement rather than list-priced. Deploy (onboarding), Sustain (ongoing engineering), and Operate (fully managed 24/7 SOC) are each sized to your environment. Operate&apos;s SOC coverage scales with ingest volume.
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#10B981] text-[#080B11] font-semibold text-sm hover:bg-[#059669] transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm text-[#080B11] hover:opacity-90 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              style={{ backgroundColor: '#A78BFA' }}
             >
               Request Scoping <ArrowRight className="w-4 h-4" />
             </Link>
@@ -209,10 +298,10 @@ export default function PricingPage() {
       <section className="py-20 px-6 bg-[#0D1117]">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-display text-2xl font-700 text-white mb-8">Every tier, every product.</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {alwaysIncluded.map((item) => (
-              <div key={item} className="flex items-center gap-3 card-glass rounded-xl p-4">
-                <CheckCircle className="w-4 h-4 text-[#00D4FF] shrink-0" />
+              <div key={item} className="flex items-start gap-3 card-glass rounded-xl p-4">
+                <CheckCircle className="w-4 h-4 text-[#00D4FF] shrink-0 mt-0.5" />
                 <span className="text-sm text-slate-300">{item}</span>
               </div>
             ))}

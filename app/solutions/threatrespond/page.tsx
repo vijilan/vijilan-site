@@ -1,9 +1,10 @@
-// Design: Atmospheric Depth — dark carbon (#080B11), cyan glow (#00D4FF), Bricolage Grotesque + Hanken Grotesk
-// Content: Claude 05_ThreatRespond.md
+// Design: Atmospheric Depth — dark carbon (#080B11), Vijilan Blue (#275FAC), Bricolage Grotesque + Hanken Grotesk
+// Revision 01: wordmark colors, hide Elite pricing, expand tier descriptions, fix CTA links
 
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle, Shield } from 'lucide-react'
+import { Wordmark } from '@/app/components/Wordmark'
 
 export const metadata: Metadata = {
   title: 'Managed SOC for Your Existing Tools | ThreatRespond™ by Vijilan',
@@ -12,11 +13,11 @@ export const metadata: Metadata = {
 }
 
 const domains = [
-  { domain: 'Endpoints & Devices', coverage: 'Any existing EDR' },
+  { domain: 'Endpoints & Devices', coverage: 'Any existing EDR — SentinelOne, Microsoft Defender, CrowdStrike, Carbon Black, Cylance, Sophos' },
   { domain: 'Identity & Access', coverage: 'AD, Entra ID, Okta, Google Workspace, Duo' },
   { domain: 'Data & Cloud Apps', coverage: 'M365, Exchange, SharePoint, Teams, Salesforce' },
   { domain: 'Networks & Firewalls', coverage: 'Palo Alto, Fortinet, Cisco, SonicWall, Meraki' },
-  { domain: 'Cloud Infrastructure', coverage: 'Azure, AWS, GCP, API activity' },
+  { domain: 'Cloud Infrastructure', coverage: 'Azure, AWS, GCP — API activity and control-plane events' },
   { domain: 'Applications & SaaS', coverage: 'Custom app logs, WAF, custom parsers (Advanced+)' },
 ]
 
@@ -27,34 +28,56 @@ const tiers = [
     unit: '/user/mo',
     soc: 'SOC advises, your team acts',
     itdr: false,
-    highlights: ['24/7 monitoring', '6 domains', 'ThreatLog SIEM', 'White-label'],
+    highlights: [
+      '24/7 monitoring across all six domains',
+      'ThreatLog™ SIEM — no data caps, 7-year retention',
+      'MITRE ATT&CK mapping on every alert',
+      'White-label ready for MSP delivery',
+      'PSA/ITSM integration (ConnectWise, Autotask, HaloPSA, FreshService, Zendesk)',
+    ],
     popular: false,
   },
   {
     name: 'Advanced',
     price: '$7',
     unit: '/user/mo',
-    soc: 'SOC acts (ThreatContain™)',
+    soc: 'SOC acts via ThreatContain™',
     itdr: true,
-    highlights: ['Full ITDR', 'Dark web monitoring', '15-min response', 'Volume discounts'],
+    highlights: [
+      'ThreatContain™ — SOC disables accounts, isolates hosts, and blocks malicious IPs directly on your tooling',
+      'Full ITDR — dark web credential monitoring, impossible travel, MFA-fatigue, BEC, OAuth abuse, lateral movement',
+      'External Attack Surface Management — finds internet-facing assets and shadow IT before attackers do',
+      '15-minute response SLA',
+      'Volume discounts auto-apply at 250+ users',
+    ],
     popular: true,
   },
   {
     name: 'Premium',
     price: '$12',
     unit: '/user/mo',
-    soc: 'SOC acts + threat hunting',
+    soc: 'SOC acts + proactive threat hunting',
     itdr: true,
-    highlights: ['Proactive hunting', 'EASM', 'CMMC L2 evidence', 'Compliance reporting'],
+    highlights: [
+      'Proactive threat hunting — hypothesis-driven hunts mapped to MITRE ATT&CK, not just reactive triage',
+      'EASM — continuous external attack surface monitoring',
+      'CMMC Level 2 evidence package — audit-ready documentation',
+      'Compliance reporting for HIPAA, PCI DSS, NIST CSF, SOC 2, ISO 27001',
+    ],
     popular: false,
   },
   {
     name: 'Elite',
-    price: '$21',
-    unit: '/user/mo',
-    soc: 'Dedicated concierge',
+    price: null,
+    unit: '',
+    soc: 'Dedicated concierge analyst',
     itdr: true,
-    highlights: ['Named analyst', 'Custom SLA', 'vCISO', 'IR retainer'],
+    highlights: [
+      'Named senior analyst — dedicated point of contact',
+      'Custom SLA — negotiated response and resolution targets',
+      'vCISO advisory — strategic security leadership',
+      'IR retainer — pre-committed incident response hours',
+    ],
     popular: false,
   },
 ]
@@ -63,8 +86,8 @@ const faqs = [
   { q: 'Do I have to replace my current EDR?', a: 'No. ThreatRespond is vendor-agnostic and works with any major EDR. That\'s the entire point — keep what you have, add the SOC.' },
   { q: 'When does the SOC take action versus just alerting?', a: 'At Essential, the SOC advises and your team acts. From Advanced upward, ThreatContain™ lets the Vijilan SOC act directly — disabling accounts, isolating hosts, blocking IPs.' },
   { q: 'Is identity threat detection included?', a: 'ITDR is included from the Advanced tier up. Essential is monitoring and guided response.' },
-  { q: 'How long is onboarding?', a: 'About one hour, using the ThreatSensor virtual appliance.' },
-  { q: 'Is there a data cap on the SIEM?', a: 'No. ThreatLog has no data caps and no per-GB fees, with 7-year retention.' },
+  { q: 'How long is onboarding?', a: 'About one hour, using the ThreatSensor™ virtual appliance powered by Cribl Stream.' },
+  { q: 'Is there a data cap on the SIEM?', a: 'No. ThreatLog™ has no data caps and no per-GB fees, with 7-year retention.' },
 ]
 
 export default function ThreatRespondPage() {
@@ -73,22 +96,23 @@ export default function ThreatRespondPage() {
 
       {/* ── HERO ── */}
       <section className="relative pt-32 pb-20 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(0,212,255,0.10),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(39,95,172,0.12),transparent)]" />
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00D4FF]/20 bg-[#00D4FF]/5 text-[#00D4FF] text-xs font-medium mb-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#275FAC]/30 bg-[#275FAC]/10 text-[#6B9FE4] text-xs font-medium mb-8">
             For teams who&apos;ve already invested in security tools
           </div>
           <h1 className="font-display text-5xl md:text-6xl font-800 text-white leading-tight mb-6">
             You bought the tools.{' '}
-            <span className="text-[#00D4FF]">Now get the team that watches them 24/7.</span>
+            <span style={{ color: '#275FAC' }}>Now get the team that watches them 24/7.</span>
           </h1>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10">
-            You don&apos;t need to rip out your stack to get a real SOC. Keep your EDR, your SIEM, your identity provider — and add our AI-augmented Security Operations Center on top. We call it ThreatRespond. Your tools. Our SOC.
+            You don&apos;t need to rip out your stack to get a real SOC. Keep your EDR, your SIEM, your identity provider — and add our AI-augmented Security Operations Center on top. <strong className="text-white">Your tools. Our SOC.</strong>
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="px-6 py-3 rounded-lg bg-[#00D4FF] text-[#080B11] font-semibold text-sm hover:bg-[#00BFEA] transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="px-6 py-3 rounded-lg font-semibold text-sm text-white hover:opacity-90 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              style={{ backgroundColor: '#275FAC' }}
             >
               Book a Demo
             </Link>
@@ -105,14 +129,14 @@ export default function ThreatRespondPage() {
       {/* ── APPROACH ── */}
       <section className="py-20 px-6 bg-[#0D1117]">
         <div className="max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00D4FF]/20 bg-[#00D4FF]/5 text-[#00D4FF] text-xs font-medium mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#275FAC]/30 bg-[#275FAC]/10 text-[#6B9FE4] text-xs font-medium mb-6">
             Your Tools. Our SOC.
           </div>
           <h2 className="font-display text-3xl md:text-4xl font-700 text-white mb-6">
             Vendor-agnostic by design.
           </h2>
           <p className="text-slate-400 leading-relaxed text-lg max-w-3xl">
-            ThreatRespond works with what you already run — SentinelOne, Microsoft Defender, Carbon Black, CrowdStrike, Cylance, Sophos, and more. No rip-and-replace. No retraining. Praxis ingests your existing telemetry, maps it to MITRE ATT&CK, correlates across all six domains, and surfaces real threats in seconds. A human analyst verifies and — from the Advanced tier — acts.
+            <Wordmark product="ThreatRespond" /> works with what you already run — SentinelOne, Microsoft Defender, Carbon Black, CrowdStrike, Cylance, Sophos, and more. No rip-and-replace. No retraining. Praxis ingests your existing telemetry, maps it to MITRE ATT&CK, correlates across all six domains, and surfaces real threats in seconds. A human analyst verifies and — from the Advanced tier — acts.
           </p>
         </div>
       </section>
@@ -125,8 +149,8 @@ export default function ThreatRespondPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {domains.map((d) => (
               <div key={d.domain} className="card-glass rounded-xl p-5 flex gap-4 items-start">
-                <div className="w-8 h-8 rounded-lg bg-[#00D4FF]/10 border border-[#00D4FF]/20 flex items-center justify-center shrink-0 mt-0.5">
-                  <Shield className="w-4 h-4 text-[#00D4FF]" />
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5" style={{ backgroundColor: 'rgba(39,95,172,0.12)', border: '1px solid rgba(39,95,172,0.25)' }}>
+                  <Shield className="w-4 h-4" style={{ color: '#6B9FE4' }} />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-white mb-1">{d.domain}</p>
@@ -147,51 +171,49 @@ export default function ThreatRespondPage() {
             {tiers.map((tier) => (
               <div
                 key={tier.name}
-                className={`card-glass rounded-2xl p-6 relative overflow-hidden ${tier.popular ? 'border-[#00D4FF]/40' : ''}`}
+                className={`card-glass rounded-2xl p-6 relative overflow-hidden ${tier.popular ? '' : ''}`}
+                style={tier.popular ? { borderColor: 'rgba(39,95,172,0.4)' } : {}}
               >
                 {tier.popular && (
-                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00D4FF] to-transparent" />
+                  <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(to right, transparent, #275FAC, transparent)' }} />
                 )}
                 {tier.popular && (
-                  <span className="absolute top-3 right-3 text-[10px] px-2 py-0.5 rounded-full bg-[#00D4FF]/10 text-[#00D4FF] border border-[#00D4FF]/20 font-medium">
+                  <span className="absolute top-3 right-3 text-[10px] px-2 py-0.5 rounded-full font-medium" style={{ backgroundColor: 'rgba(39,95,172,0.12)', color: '#6B9FE4', border: '1px solid rgba(39,95,172,0.25)' }}>
                     Most Popular
                   </span>
                 )}
                 <div className="mb-4">
                   <p className="text-sm text-slate-400 mb-1">{tier.name}</p>
-                  <div className="flex items-baseline gap-1">
-                    <span className="font-display text-3xl font-700 text-white">{tier.price}</span>
-                    <span className="text-xs text-slate-500">{tier.unit}</span>
-                  </div>
+                  {tier.price ? (
+                    <div className="flex items-baseline gap-1">
+                      <span className="font-display text-3xl font-700 text-white">{tier.price}</span>
+                      <span className="text-xs text-slate-500">{tier.unit}</span>
+                    </div>
+                  ) : (
+                    <div>
+                      <p className="text-base font-600 text-white">Custom</p>
+                      <Link href="/contact" className="text-xs mt-0.5 hover:underline" style={{ color: '#6B9FE4' }}>Contact us →</Link>
+                    </div>
+                  )}
                 </div>
                 <p className="text-xs text-slate-400 mb-4 leading-snug">{tier.soc}</p>
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   {tier.highlights.map((h) => (
-                    <div key={h} className="flex items-center gap-2 text-xs text-slate-300">
-                      <CheckCircle className="w-3 h-3 text-[#00D4FF] shrink-0" />
-                      {h}
+                    <div key={h} className="flex items-start gap-2 text-xs text-slate-300">
+                      <CheckCircle className="w-3 h-3 mt-0.5 shrink-0" style={{ color: '#6B9FE4' }} />
+                      <span>{h}</span>
                     </div>
                   ))}
                   {tier.itdr && (
-                    <div className="flex items-center gap-2 text-xs text-[#00D4FF]">
+                    <div className="flex items-center gap-2 text-xs font-medium" style={{ color: '#6B9FE4' }}>
                       <CheckCircle className="w-3 h-3 shrink-0" />
-                      ITDR Included
+                      Full ITDR Included
                     </div>
                   )}
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── TECHNICAL DEPTH ── */}
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="font-display text-2xl font-700 text-white mb-6">What the SOC actually does at each tier.</h2>
-          <p className="text-slate-400 leading-relaxed">
-            At Essential, Praxis triages and the SOC advises — your team executes containment. From Advanced up, ThreatContain™ activates: the Vijilan SOC disables compromised accounts, isolates hosts, and blocks malicious IPs directly on your tooling, in real time. Premium adds proactive, hypothesis-driven threat hunting on the MITRE ATT&CK framework. Onboarding runs ~1 hour via ThreatSensor™, our Cribl Stream-powered virtual appliance that routes your telemetry to the SOC and ThreatLog™ SIEM — no data caps, no per-GB fees, 7-year retention.
-          </p>
         </div>
       </section>
 
@@ -219,7 +241,8 @@ export default function ThreatRespondPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#00D4FF] text-[#080B11] font-semibold text-sm hover:bg-[#00BFEA] transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-sm text-white hover:opacity-90 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              style={{ backgroundColor: '#275FAC' }}
             >
               Book a Demo <ArrowRight className="w-4 h-4" />
             </Link>
@@ -227,7 +250,7 @@ export default function ThreatRespondPage() {
               href="/pricing"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-white/10 text-white text-sm font-medium hover:border-white/20 hover:bg-white/5 transition-all"
             >
-              Compare with ThreatDefend <ArrowRight className="w-4 h-4" />
+              Compare with <Wordmark product="ThreatDefend" /> <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
