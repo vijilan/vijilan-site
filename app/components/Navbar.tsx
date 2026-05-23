@@ -4,9 +4,10 @@
 // Updated with new routes: /solutions, /platform/praxis, /pricing, /resources/faq
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
-import { Menu, X, Shield } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 const navLinks = [
   {
@@ -50,15 +51,26 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Wordmark */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-7 h-7 rounded-md bg-gradient-to-br from-[#00D4FF] to-[#7C3AED] flex items-center justify-center">
-            <Shield className="w-4 h-4 text-white" />
-          </div>
-          <span className="font-display font-700 text-lg tracking-tight">
-            <span className="text-white">Vijilan</span>
-            <span className="text-[#00D4FF]">.ai</span>
-          </span>
+        {/* Official SVG Logo — white wordmark on dark surface */}
+        <Link href="/" className="flex items-center group" aria-label="Vijilan home">
+          {/* Full lockup: hidden below 360px, shown from xs up */}
+          <Image
+            src="/vijilan-logo-white-wordmark.svg"
+            alt="Vijilan"
+            width={130}
+            height={51}
+            className="hidden xs:block h-9 w-auto"
+            priority
+          />
+          {/* Waveform mark only: shown below 360px */}
+          <Image
+            src="/vijilan-logo-white-wordmark.svg"
+            alt="Vijilan"
+            width={36}
+            height={36}
+            className="xs:hidden h-8 w-8 object-left object-contain"
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}
@@ -117,7 +129,8 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <Link
             href="/contact"
-            className="px-4 py-2 text-sm font-medium rounded-lg bg-[#00D4FF] text-[#080B11] hover:bg-[#00BFEA] transition-colors"
+            className="px-4 py-2 text-sm font-medium rounded-lg text-[#080B11] hover:opacity-90 transition-colors"
+            style={{ backgroundColor: '#00AEEF' }}
           >
             Book a Demo
           </Link>
@@ -165,7 +178,8 @@ export default function Navbar() {
             <Link
               href="/contact"
               onClick={() => setMobileOpen(false)}
-              className="block w-full text-center px-4 py-2.5 text-sm font-medium rounded-lg bg-[#00D4FF] text-[#080B11] hover:bg-[#00BFEA] transition-colors"
+              className="block w-full text-center px-4 py-2.5 text-sm font-medium rounded-lg text-[#080B11] hover:opacity-90 transition-colors"
+              style={{ backgroundColor: '#00AEEF' }}
             >
               Book a Demo
             </Link>

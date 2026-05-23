@@ -37,7 +37,7 @@ export default function ContactPage() {
                       type="text"
                       name="firstName"
                       required
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#00D4FF]/40 transition-colors"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#00AEEF]/40 transition-colors"
                       placeholder="Jane"
                     />
                   </div>
@@ -47,7 +47,7 @@ export default function ContactPage() {
                       type="text"
                       name="lastName"
                       required
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#00D4FF]/40 transition-colors"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#00AEEF]/40 transition-colors"
                       placeholder="Smith"
                     />
                   </div>
@@ -58,7 +58,7 @@ export default function ContactPage() {
                     type="email"
                     name="email"
                     required
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#00D4FF]/40 transition-colors"
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#00AEEF]/40 transition-colors"
                     placeholder="jane@company.com"
                   />
                 </div>
@@ -67,7 +67,7 @@ export default function ContactPage() {
                   <input
                     type="text"
                     name="company"
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#00D4FF]/40 transition-colors"
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#00AEEF]/40 transition-colors"
                     placeholder="Acme Corp"
                   />
                 </div>
@@ -75,7 +75,7 @@ export default function ContactPage() {
                   <label className="block text-xs text-slate-400 mb-2 font-medium">I&apos;m interested in</label>
                   <select
                     name="interest"
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#00D4FF]/40 transition-colors"
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#00AEEF]/40 transition-colors"
                   >
                     <option value="" className="bg-[#0D1117]">Select a product or service</option>
                     <option value="threatrespond" className="bg-[#0D1117]">ThreatRespond™ — MDR</option>
@@ -90,13 +90,13 @@ export default function ContactPage() {
                   <textarea
                     name="body"
                     rows={4}
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#00D4FF]/40 transition-colors resize-none"
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#00AEEF]/40 transition-colors resize-none"
                     placeholder="Tell us about your security needs or ask a question..."
                   />
                 </div>
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-[#00D4FF] text-[#080B11] font-semibold text-sm hover:bg-[#00BFEA] transition-all hover:scale-[1.01] active:scale-[0.99]"
+                  className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-[#00AEEF] text-[#080B11] font-semibold text-sm hover:bg-[#009FD9] transition-all hover:scale-[1.01] active:scale-[0.99]"
                 >
                   Send Message
                   <ArrowRight className="w-4 h-4" />
@@ -111,30 +111,30 @@ export default function ContactPage() {
               <h3 className="font-display text-lg font-700 text-white mb-6">Get in Touch</h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#00D4FF]/10 border border-[#00D4FF]/20 flex items-center justify-center shrink-0">
-                    <Mail className="w-4 h-4 text-[#00D4FF]" />
+                  <div className="w-8 h-8 rounded-lg bg-[#00AEEF]/10 border border-[#00AEEF]/20 flex items-center justify-center shrink-0">
+                    <Mail className="w-4 h-4 text-[#00AEEF]" />
                   </div>
                   <div>
                     <p className="text-xs text-slate-500 mb-0.5">Email</p>
-                    <a href="mailto:hello@vijilan.ai" className="text-sm text-white hover:text-[#00D4FF] transition-colors">
+                    <a href="mailto:hello@vijilan.ai" className="text-sm text-white hover:text-[#00AEEF] transition-colors">
                       hello@vijilan.ai
                     </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#00D4FF]/10 border border-[#00D4FF]/20 flex items-center justify-center shrink-0">
-                    <Phone className="w-4 h-4 text-[#00D4FF]" />
+                  <div className="w-8 h-8 rounded-lg bg-[#00AEEF]/10 border border-[#00AEEF]/20 flex items-center justify-center shrink-0">
+                    <Phone className="w-4 h-4 text-[#00AEEF]" />
                   </div>
                   <div>
                     <p className="text-xs text-slate-500 mb-0.5">Phone</p>
-                    <a href="tel:+18005551234" className="text-sm text-white hover:text-[#00D4FF] transition-colors">
+                    <a href="tel:+18005551234" className="text-sm text-white hover:text-[#00AEEF] transition-colors">
                       +1 (800) 555-1234
                     </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#00D4FF]/10 border border-[#00D4FF]/20 flex items-center justify-center shrink-0">
-                    <MapPin className="w-4 h-4 text-[#00D4FF]" />
+                  <div className="w-8 h-8 rounded-lg bg-[#00AEEF]/10 border border-[#00AEEF]/20 flex items-center justify-center shrink-0">
+                    <MapPin className="w-4 h-4 text-[#00AEEF]" />
                   </div>
                   <div>
                     <p className="text-xs text-slate-500 mb-0.5">Headquarters</p>
@@ -158,7 +158,7 @@ export default function ContactPage() {
               </p>
               <a
                 href="mailto:partners@vijilan.ai"
-                className="text-sm text-[#00D4FF] hover:underline"
+                className="text-sm text-[#00AEEF] hover:underline"
               >
                 partners@vijilan.ai
               </a>

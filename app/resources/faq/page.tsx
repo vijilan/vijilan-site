@@ -119,7 +119,7 @@ export default function FAQPage() {
       <section className="relative pt-32 pb-20 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(0,212,255,0.07),transparent)]" />
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00D4FF]/20 bg-[#00D4FF]/5 text-[#00D4FF] text-xs font-medium mb-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00AEEF]/20 bg-[#00AEEF]/5 text-[#00AEEF] text-xs font-medium mb-8">
             FAQ
           </div>
           <h1 className="font-display text-5xl md:text-6xl font-800 text-white leading-tight mb-6">
@@ -164,7 +164,7 @@ export default function FAQPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#00D4FF] text-[#080B11] font-semibold text-sm hover:bg-[#00BFEA] transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#00AEEF] text-[#080B11] font-semibold text-sm hover:bg-[#009FD9] transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
               Book a Demo <ArrowRight className="w-4 h-4" />
             </Link>

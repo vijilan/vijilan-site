@@ -19,7 +19,7 @@ const situationTiles = [
     answer: 'ThreatRespond™',
     tagline: 'Your tools. Our SOC.',
     href: '/solutions/threatrespond',
-    color: '#00D4FF',
+    color: '#00AEEF',
   },
   {
     situation: 'I want CrowdStrike deployed and managed for me',
@@ -92,8 +92,8 @@ export default function HomePage() {
         />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00D4FF]/20 bg-[#00D4FF]/5 text-[#00D4FF] text-xs font-medium mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00D4FF] animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00AEEF]/20 bg-[#00AEEF]/5 text-[#00AEEF] text-xs font-medium mb-8">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00AEEF] animate-pulse" />
             AI-Augmented SOC · Human-Verified
           </div>
 
@@ -102,7 +102,7 @@ export default function HomePage() {
             <br />
             <span
               className="text-transparent bg-clip-text"
-              style={{ backgroundImage: 'linear-gradient(135deg, #00D4FF 0%, #7C3AED 100%)' }}
+              style={{ backgroundImage: 'linear-gradient(135deg, #00AEEF 0%, #7C3AED 100%)' }}
             >
               Your team can&apos;t.
             </span>
@@ -115,7 +115,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="px-6 py-3 rounded-lg bg-[#00D4FF] text-[#080B11] font-semibold text-sm hover:bg-[#00BFEA] transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="px-6 py-3 rounded-lg bg-[#00AEEF] text-[#080B11] font-semibold text-sm hover:bg-[#009FD9] transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
               Book a Demo
             </Link>
@@ -176,7 +176,7 @@ export default function HomePage() {
 
           <p className="text-center mt-8 text-sm text-slate-500">
             Not sure which fits?{' '}
-            <Link href="/solutions" className="text-[#00D4FF] hover:underline">
+            <Link href="/solutions" className="text-[#00AEEF] hover:underline">
               Take the 60-second solution finder →
             </Link>
           </p>
@@ -231,7 +231,7 @@ export default function HomePage() {
       <section className="py-24 px-6 bg-[#0D1117]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00D4FF]/20 bg-[#00D4FF]/5 text-[#00D4FF] text-xs font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00AEEF]/20 bg-[#00AEEF]/5 text-[#00AEEF] text-xs font-medium mb-6">
               <Clock className="w-3 h-3" />
               The Moment That Matters
             </div>
@@ -246,7 +246,7 @@ export default function HomePage() {
                 <tr className="border-b border-white/10">
                   <th className="text-left py-3 px-4 text-xs text-slate-500 uppercase tracking-wider font-medium w-24">Time</th>
                   <th className="text-left py-3 px-4 text-xs text-slate-500 uppercase tracking-wider font-medium">Other Tools</th>
-                  <th className="text-left py-3 px-4 text-xs text-[#00D4FF] uppercase tracking-wider font-medium">Vijilan + Praxis</th>
+                  <th className="text-left py-3 px-4 text-xs text-[#00AEEF] uppercase tracking-wider font-medium">Vijilan + Praxis</th>
                 </tr>
               </thead>
               <tbody>
@@ -254,7 +254,7 @@ export default function HomePage() {
                   <tr key={i} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
                     <td className="py-4 px-4 text-sm font-mono text-slate-400 whitespace-nowrap">{row.time}</td>
                     <td className="py-4 px-4 text-sm text-slate-500">{row.other}</td>
-                    <td className="py-4 px-4 text-sm text-[#00D4FF]">{row.vijilan}</td>
+                    <td className="py-4 px-4 text-sm text-[#00AEEF]">{row.vijilan}</td>
                   </tr>
                 ))}
               </tbody>
@@ -294,7 +294,7 @@ export default function HomePage() {
       <section className="py-24 px-6 bg-[#0D1117]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00D4FF]/20 bg-[#00D4FF]/5 text-[#00D4FF] text-xs font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00AEEF]/20 bg-[#00AEEF]/5 text-[#00AEEF] text-xs font-medium mb-6">
               Works With What You Already Run
             </div>
             <h2 className="font-display text-4xl md:text-5xl font-700 text-white mb-4">
@@ -312,7 +312,7 @@ export default function HomePage() {
                 {securityIntegrations.map((tool) => (
                   <span
                     key={tool}
-                    className="px-3 py-1.5 rounded-lg border border-white/10 text-sm text-slate-300 bg-white/[0.03] hover:border-[#00D4FF]/30 hover:text-white transition-colors"
+                    className="px-3 py-1.5 rounded-lg border border-white/10 text-sm text-slate-300 bg-white/[0.03] hover:border-[#00AEEF]/30 hover:text-white transition-colors"
                   >
                     {tool}
                   </span>
@@ -335,7 +335,7 @@ export default function HomePage() {
           </div>
 
           <p className="text-center mt-8">
-            <Link href="/solutions" className="text-sm text-[#00D4FF] hover:underline inline-flex items-center gap-1">
+            <Link href="/solutions" className="text-sm text-[#00AEEF] hover:underline inline-flex items-center gap-1">
               See all integrations <ArrowRight className="w-3 h-3" />
             </Link>
           </p>
@@ -346,9 +346,9 @@ export default function HomePage() {
       <section className="py-24 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="relative rounded-3xl overflow-hidden p-12 md:p-16 border border-white/10">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#00D4FF]/5 via-transparent to-[#7C3AED]/5" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#00AEEF]/5 via-transparent to-[#7C3AED]/5" />
             <div className="relative z-10 text-center">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00D4FF]/20 bg-[#00D4FF]/5 text-[#00D4FF] text-xs font-medium mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00AEEF]/20 bg-[#00AEEF]/5 text-[#00AEEF] text-xs font-medium mb-6">
                 Transparent Pricing
               </div>
               <h2 className="font-display text-4xl md:text-5xl font-700 text-white mb-4">
@@ -359,7 +359,7 @@ export default function HomePage() {
               </p>
               <Link
                 href="/pricing"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#00D4FF] text-[#080B11] font-semibold text-sm hover:bg-[#00BFEA] transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#00AEEF] text-[#080B11] font-semibold text-sm hover:bg-[#009FD9] transition-all hover:scale-[1.02] active:scale-[0.98]"
               >
                 View Pricing <ArrowRight className="w-4 h-4" />
               </Link>
@@ -371,8 +371,8 @@ export default function HomePage() {
       {/* ── FINAL CTA BANNER ── */}
       <section className="py-24 px-6 bg-[#0D1117]">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="relative rounded-3xl overflow-hidden p-12 md:p-16 border border-[#00D4FF]/20">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#00D4FF]/10 via-transparent to-[#7C3AED]/10" />
+          <div className="relative rounded-3xl overflow-hidden p-12 md:p-16 border border-[#00AEEF]/20">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#00AEEF]/10 via-transparent to-[#7C3AED]/10" />
             <div className="relative z-10">
               <h2 className="font-display text-4xl md:text-5xl font-700 text-white mb-4">
                 See Praxis defend your environment in real time.
@@ -383,7 +383,7 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#00D4FF] text-[#080B11] font-semibold text-sm hover:bg-[#00BFEA] transition-all hover:scale-[1.02] active:scale-[0.98]"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#00AEEF] text-[#080B11] font-semibold text-sm hover:bg-[#009FD9] transition-all hover:scale-[1.02] active:scale-[0.98]"
                 >
                   Book a Demo <ArrowRight className="w-4 h-4" />
                 </Link>

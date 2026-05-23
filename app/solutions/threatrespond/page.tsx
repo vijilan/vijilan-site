@@ -1,4 +1,4 @@
-// Design: Atmospheric Depth — dark carbon (#080B11), Vijilan Blue (#275FAC), Bricolage Grotesque + Hanken Grotesk
+// Design: Atmospheric Depth — dark carbon (#080B11), Vijilan Blue (#00AEEF), Bricolage Grotesque + Hanken Grotesk
 // Revision 01: wordmark colors, hide Elite pricing, expand tier descriptions, fix CTA links
 
 import type { Metadata } from 'next'
@@ -96,14 +96,14 @@ export default function ThreatRespondPage() {
 
       {/* ── HERO ── */}
       <section className="relative pt-32 pb-20 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(39,95,172,0.12),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(0,174,239,0.12),transparent)]" />
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#275FAC]/30 bg-[#275FAC]/10 text-[#6B9FE4] text-xs font-medium mb-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00AEEF]/30 bg-[#00AEEF]/10 text-[#00AEEF] text-xs font-medium mb-8">
             For teams who&apos;ve already invested in security tools
           </div>
           <h1 className="font-display text-5xl md:text-6xl font-800 text-white leading-tight mb-6">
             You bought the tools.{' '}
-            <span style={{ color: '#275FAC' }}>Now get the team that watches them 24/7.</span>
+            <span style={{ color: '#00AEEF' }}>Now get the team that watches them 24/7.</span>
           </h1>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10">
             You don&apos;t need to rip out your stack to get a real SOC. Keep your EDR, your SIEM, your identity provider — and add our AI-augmented Security Operations Center on top. <strong className="text-white">Your tools. Our SOC.</strong>
@@ -112,7 +112,7 @@ export default function ThreatRespondPage() {
             <Link
               href="/contact"
               className="px-6 py-3 rounded-lg font-semibold text-sm text-white hover:opacity-90 transition-all hover:scale-[1.02] active:scale-[0.98]"
-              style={{ backgroundColor: '#275FAC' }}
+              style={{ backgroundColor: '#00AEEF' }}
             >
               Book a Demo
             </Link>
@@ -129,7 +129,7 @@ export default function ThreatRespondPage() {
       {/* ── APPROACH ── */}
       <section className="py-20 px-6 bg-[#0D1117]">
         <div className="max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#275FAC]/30 bg-[#275FAC]/10 text-[#6B9FE4] text-xs font-medium mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00AEEF]/30 bg-[#00AEEF]/10 text-[#00AEEF] text-xs font-medium mb-6">
             Your Tools. Our SOC.
           </div>
           <h2 className="font-display text-3xl md:text-4xl font-700 text-white mb-6">
@@ -149,8 +149,8 @@ export default function ThreatRespondPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {domains.map((d) => (
               <div key={d.domain} className="card-glass rounded-xl p-5 flex gap-4 items-start">
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5" style={{ backgroundColor: 'rgba(39,95,172,0.12)', border: '1px solid rgba(39,95,172,0.25)' }}>
-                  <Shield className="w-4 h-4" style={{ color: '#6B9FE4' }} />
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5" style={{ backgroundColor: 'rgba(0,174,239,0.12)', border: '1px solid rgba(0,174,239,0.25)' }}>
+                  <Shield className="w-4 h-4" style={{ color: '#00AEEF' }} />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-white mb-1">{d.domain}</p>
@@ -172,13 +172,13 @@ export default function ThreatRespondPage() {
               <div
                 key={tier.name}
                 className={`card-glass rounded-2xl p-6 relative overflow-hidden ${tier.popular ? '' : ''}`}
-                style={tier.popular ? { borderColor: 'rgba(39,95,172,0.4)' } : {}}
+                style={tier.popular ? { borderColor: 'rgba(0,174,239,0.4)' } : {}}
               >
                 {tier.popular && (
-                  <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(to right, transparent, #275FAC, transparent)' }} />
+                  <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(to right, transparent, #00AEEF, transparent)' }} />
                 )}
                 {tier.popular && (
-                  <span className="absolute top-3 right-3 text-[10px] px-2 py-0.5 rounded-full font-medium" style={{ backgroundColor: 'rgba(39,95,172,0.12)', color: '#6B9FE4', border: '1px solid rgba(39,95,172,0.25)' }}>
+                  <span className="absolute top-3 right-3 text-[10px] px-2 py-0.5 rounded-full font-medium" style={{ backgroundColor: 'rgba(0,174,239,0.12)', color: '#00AEEF', border: '1px solid rgba(0,174,239,0.25)' }}>
                     Most Popular
                   </span>
                 )}
@@ -192,7 +192,7 @@ export default function ThreatRespondPage() {
                   ) : (
                     <div>
                       <p className="text-base font-600 text-white">Custom</p>
-                      <Link href="/contact" className="text-xs mt-0.5 hover:underline" style={{ color: '#6B9FE4' }}>Contact us →</Link>
+                      <Link href="/contact" className="text-xs mt-0.5 hover:underline" style={{ color: '#00AEEF' }}>Contact us →</Link>
                     </div>
                   )}
                 </div>
@@ -200,12 +200,12 @@ export default function ThreatRespondPage() {
                 <div className="space-y-2.5">
                   {tier.highlights.map((h) => (
                     <div key={h} className="flex items-start gap-2 text-xs text-slate-300">
-                      <CheckCircle className="w-3 h-3 mt-0.5 shrink-0" style={{ color: '#6B9FE4' }} />
+                      <CheckCircle className="w-3 h-3 mt-0.5 shrink-0" style={{ color: '#00AEEF' }} />
                       <span>{h}</span>
                     </div>
                   ))}
                   {tier.itdr && (
-                    <div className="flex items-center gap-2 text-xs font-medium" style={{ color: '#6B9FE4' }}>
+                    <div className="flex items-center gap-2 text-xs font-medium" style={{ color: '#00AEEF' }}>
                       <CheckCircle className="w-3 h-3 shrink-0" />
                       Full ITDR Included
                     </div>
@@ -242,7 +242,7 @@ export default function ThreatRespondPage() {
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-sm text-white hover:opacity-90 transition-all hover:scale-[1.02] active:scale-[0.98]"
-              style={{ backgroundColor: '#275FAC' }}
+              style={{ backgroundColor: '#00AEEF' }}
             >
               Book a Demo <ArrowRight className="w-4 h-4" />
             </Link>

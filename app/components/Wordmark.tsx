@@ -17,7 +17,7 @@ interface WordmarkProps {
 }
 
 const WORDMARK_CONFIG: Record<Product, { prefix: string; accent: string; color: string }> = {
-  ThreatRespond: { prefix: 'Threat', accent: 'Respond', color: '#275FAC' },
+  ThreatRespond: { prefix: 'Threat', accent: 'Respond', color: '#00AEEF' },
   ThreatDefend:  { prefix: 'Threat', accent: 'Defend',  color: '#ED1C24' },
   NextDefend:    { prefix: 'Next',   accent: 'Defend',  color: '#A78BFA' },
   ThreatAssess:  { prefix: 'Threat', accent: 'Assess',  color: '#2E6E7E' },

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Shield } from 'lucide-react'
+import Image from 'next/image'
 
 const footerLinks = [
   {
@@ -42,14 +42,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="md:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-7 h-7 rounded-md bg-gradient-to-br from-[#00D4FF] to-[#7C3AED] flex items-center justify-center">
-                <Shield className="w-4 h-4 text-white" />
-              </div>
-              <span className="font-display font-bold text-lg tracking-tight">
-                <span className="text-white">Vijilan</span>
-                <span className="text-[#00D4FF]">.ai</span>
-              </span>
+            {/* Official SVG Logo — white wordmark on dark footer */}
+            <Link href="/" className="inline-block mb-4" aria-label="Vijilan home">
+              <Image
+                src="/vijilan-logo-white-wordmark.svg"
+                alt="Vijilan"
+                width={120}
+                height={47}
+                className="h-8 w-auto"
+              />
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed">
               AI-augmented managed security for MSPs and MSSPs. Machine speed. Human judgment.

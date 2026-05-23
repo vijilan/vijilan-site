@@ -37,7 +37,7 @@ export default async function ProductPage({ params }: Props) {
   const product = await sanityFetch(productBySlugQuery, { slug }, ['product'])
   if (!product) notFound()
 
-  const accent = product.accentColor || '#00D4FF'
+  const accent = product.accentColor || '#00AEEF'
 
   return (
     <div className="min-h-screen">
@@ -122,7 +122,7 @@ export default async function ProductPage({ params }: Props) {
                   key={tier._key}
                   className={`relative rounded-2xl p-8 border transition-all ${
                     tier.isPopular
-                      ? 'border-[#00D4FF]/40 bg-[#0D1117]'
+                      ? 'border-[#00AEEF]/40 bg-[#0D1117]'
                       : 'border-white/8 bg-[#0D1117]/60'
                   }`}
                 >
