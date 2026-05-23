@@ -2,9 +2,16 @@ import type { Metadata } from 'next'
 import { Bricolage_Grotesque, Hanken_Grotesk } from 'next/font/google'
 import dynamic from 'next/dynamic'
 import './globals.css'
+import { sanityFetch } from '@/app/sanity/lib/client'
+import { siteSettingsQuery } from '@/app/sanity/lib/queries'
 
 const Navbar = dynamic(() => import('@/app/components/Navbar'), { ssr: false })
 const Footer = dynamic(() => import('@/app/components/Footer'), { ssr: false })
+
+interface SiteSettings {
+  logo?: { asset?: { url?: string }; alt?: string } | null
+  logoDark?: { asset?: { url?: string }; alt?: string } | null
+}
 
 const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
@@ -32,17 +39,27 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  // Fetch logo from Sanity — cached 60s, falls back gracefully to static SVG
+  const settings = await sanityFetch<SiteSettings>(
+    siteSettingsQuery,
+    {},
+    ['siteSettings']
+  ).catch(() => null)
+
+  const logoUrl = settings?.logo?.asset?.url ?? null
+  const logoAlt = settings?.logo?.alt ?? null
+
   return (
     <html lang="en" className={`${bricolage.variable} ${hanken.variable}`}>
       <body className="bg-[#080B11] text-white antialiased">
-        <Navbar />
+        <Navbar logoUrl={logoUrl} logoAlt={logoAlt} />
         <main>{children}</main>
-        <Footer />
+        <Footer logoUrl={logoUrl} logoAlt={logoAlt} />
       </body>
     </html>
   )

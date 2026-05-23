@@ -29,21 +29,28 @@ const internalLinks = [
   },
 ]
 
-export default function Footer() {
+interface FooterProps {
+  /** Logo URL from Sanity CDN. Falls back to static SVG if not provided. */
+  logoUrl?: string | null
+  logoAlt?: string | null
+}
+
+export default function Footer({ logoUrl, logoAlt }: FooterProps) {
   return (
     <footer className="border-t border-white/5 bg-[#080B11]">
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
           {/* Brand */}
           <div className="md:col-span-2">
-            {/* Official SVG Logo — white wordmark on dark footer */}
+            {/* Logo — Sanity-managed with static SVG fallback */}
             <Link href="/" className="inline-block mb-4" aria-label="Vijilan home">
               <Image
-                src="/vijilan-logo-white-wordmark.svg"
-                alt="Vijilan"
+                src={logoUrl || '/vijilan-logo-white-wordmark.svg'}
+                alt={logoAlt || 'Vijilan'}
                 width={120}
                 height={47}
                 className="h-8 w-auto"
+                unoptimized={(logoUrl || '/vijilan-logo-white-wordmark.svg').endsWith('.svg')}
               />
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed mb-6">

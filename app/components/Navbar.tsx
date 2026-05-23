@@ -37,7 +37,13 @@ const topLinks = [
   { label: 'FAQ', href: '/resources/faq' },
 ]
 
-export default function Navbar() {
+interface NavbarProps {
+  /** Logo URL from Sanity CDN. Falls back to static SVG if not provided. */
+  logoUrl?: string | null
+  logoAlt?: string | null
+}
+
+export default function Navbar({ logoUrl, logoAlt }: NavbarProps) {
   const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -58,25 +64,27 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Official SVG Logo — white wordmark on dark surface */}
+        {/* Logo — Sanity-managed with static SVG fallback */}
         <Link href="/" className="flex items-center group" aria-label="Vijilan home">
           {/* Full lockup: hidden below 360px, shown from xs up */}
           <Image
-            src="/vijilan-logo-white-wordmark.svg"
-            alt="Vijilan"
+            src={logoUrl || '/vijilan-logo-white-wordmark.svg'}
+            alt={logoAlt || 'Vijilan'}
             width={130}
             height={51}
             className="hidden xs:block h-9 w-auto"
             priority
+            unoptimized={(logoUrl || '/vijilan-logo-white-wordmark.svg').endsWith('.svg')}
           />
           {/* Waveform mark only: shown below 360px */}
           <Image
-            src="/vijilan-logo-white-wordmark.svg"
-            alt="Vijilan"
+            src={logoUrl || '/vijilan-logo-white-wordmark.svg'}
+            alt={logoAlt || 'Vijilan'}
             width={36}
             height={36}
             className="xs:hidden h-8 w-8 object-left object-contain"
             priority
+            unoptimized={(logoUrl || '/vijilan-logo-white-wordmark.svg').endsWith('.svg')}
           />
         </Link>
 

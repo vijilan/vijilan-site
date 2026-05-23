@@ -26,6 +26,14 @@ export const siteSettingsQuery = groq`
   *[_type == "siteSettings"][0] {
     siteName,
     tagline,
+    logo {
+      asset->{ url, _id },
+      alt
+    },
+    logoDark {
+      asset->{ url, _id },
+      alt
+    },
     navCta,
     footerTagline,
     footerLinks,
